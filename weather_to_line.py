@@ -3,8 +3,8 @@ from datetime import datetime
 import json
 
 # ====== LINE設定 ======
-access_token = "IN7F+3KZHIxASFfz8xr1xQXpv1xUmvZjynVQSoax43v879osxkfVmNSe2V1NJp1CrqeI55ik8GEBgFi6EfheT7rviNaNIr7VzA2e59P4jzlIIWv/PBccecens9URpOmeqWElOVTPK7quFqfcvSMRLAdB04t89/1O/w1cDnyilFU="
-user_id = "U9b3696b7fe84cb4b5945793b737a2fa5"
+access_token = os.environ.get("ACCESS_TOKEN")
+user_id = os.environ.get("USER_ID")
 
 # 気象庁 山形県（庄内）の天気予報データ
 JMA_URL = "https://www.jma.go.jp/bosai/forecast/data/forecast/060000.json"

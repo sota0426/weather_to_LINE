@@ -1,0 +1,28 @@
+name: LINE Weather Notify
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # 毎日18:00（日本時間）
+  workflow_dispatch:     # 手動実行ボタンを表示
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: GitHubからコードを取得
+        uses: actions/checkout@v3
+
+      - name: Pythonセットアップ
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: requestsライブラリをインストール
+        run: pip install requests
+
+      - name: 天気スクリプトを実行
+        env:
+          ACCESS_TOKEN: ${{ secrets.LINE_ACCESS_TOKEN }}
+          USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: python weather_to_line.py
