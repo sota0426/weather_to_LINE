@@ -2,7 +2,7 @@ name: LINE Weather Notify
 
 on:
   schedule:
-    - cron: '50 23 * * *'  # 毎日18:00（日本時間）
+    - cron: '50 23 * * *'  # 毎日07:50（日本時間）
   workflow_dispatch:     # 手動実行ボタンを表示
 
 jobs:
